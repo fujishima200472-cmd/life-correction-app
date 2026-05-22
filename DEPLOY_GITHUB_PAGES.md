@@ -29,13 +29,15 @@ https://github.com/your-name/life-correction-app.git
 
 ## GitHub Pagesの設定
 
+このリポジトリにはGitHub ActionsでPagesへデプロイする設定も入っています。  
+push後に自動で動かない場合だけ、次の設定を確認してください。
+
 GitHubでリポジトリを開きます。
 
 1. `Settings`
 2. `Pages`
 3. `Build and deployment`
-4. `Source` を `Deploy from a branch`
-5. `Branch` を `main`、フォルダを `/ (root)`
+4. `Source` を `GitHub Actions`
 6. `Save`
 
 数十秒から数分後に次の形式のURLで開けます。
