@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+life_correction_state.json
+.DS_Store
+Thumbs.db

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111316">
+  <title>生活矯正</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">生活矯正</p>
+        <h1 id="headline">次の一手</h1>
+      </div>
+      <button id="notifyButton" class="iconButton" type="button" aria-label="通知">通知</button>
+    </header>
+
+    <section class="focusPanel">
+      <p id="focusLabel" class="muted">いま捕まっているタスク</p>
+      <h2 id="focusTitle">未登録</h2>
+      <p id="focusMeta" class="meta">まず1個だけ入れます。</p>
+      <div class="actionRow">
+        <button id="doneButton" type="button">完了</button>
+        <button id="snoozeButton" type="button">10分延期</button>
+      </div>
+    </section>
+
+    <section class="capturePanel">
+      <label for="taskTitle">いま避けていること</label>
+      <input id="taskTitle" autocomplete="off" placeholder="例: レポートを1段落だけ書く">
+      <div class="quickGrid" role="group" aria-label="締切">
+        <button data-minutes="15" type="button">15分後</button>
+        <button data-minutes="60" type="button">1時間後</button>
+        <button data-preset="tonight" type="button">今日中</button>
+        <button data-preset="morning" type="button">明朝</button>
+      </div>
+      <button id="addButton" class="primary" type="button">この1個を入れる</button>
+    </section>
+
+    <section class="listPanel">
+      <div class="sectionTitle">
+        <h2>未完了</h2>
+        <button id="clearDoneButton" type="button">整理</button>
+      </div>
+      <ul id="taskList"></ul>
+    </section>
+  </main>
+
+  <div id="gate" class="gate" hidden>
+    <div class="gateInner">
+      <p class="eyebrow">入口ロック</p>
+      <h2 id="gateTitle">まず1個だけ捕まえる</h2>
+      <p id="gateText">スマホを開いた今、避けていることを雑に1個だけ入れます。</p>
+      <input id="gateInput" autocomplete="off" placeholder="例: 洗濯物を洗濯機に入れる">
+      <div class="quickGrid">
+        <button data-gate-minutes="15" type="button">15分後</button>
+        <button data-gate-minutes="60" type="button">1時間後</button>
+        <button data-gate-preset="tonight" type="button">今日中</button>
+        <button data-gate-preset="morning" type="button">明朝</button>
+      </div>
+      <button id="gateAddButton" class="primary" type="button">逃がさない</button>
+      <button id="gateSkipButton" class="subtle" type="button">今日は本当に何もない</button>
+    </div>
+  </div>
+
+  <div id="blocker" class="blocker" hidden>
+    <div class="blockerInner">
+      <p class="eyebrow">期限超過</p>
+      <h2 id="blockerTitle"></h2>
+      <p id="blockerTime"></p>
+      <div class="blockerActions">
+        <button id="blockerDone" type="button">完了した</button>
+        <button id="blockerSnooze" type="button">10分延期</button>
+        <button id="blockerEmergency" type="button">緊急解除</button>
+      </div>
+      <div id="emergencyBox" class="emergencyBox" hidden>
+        <p id="emergencyText"></p>
+        <input id="emergencyInput" autocomplete="off">
+        <button id="emergencyTry" type="button">解除を試す</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
